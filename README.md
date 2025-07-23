@@ -97,26 +97,26 @@ Using ctes to facilitate the process
 
 -- DATA EXPLORATION
 
--- Q1. How many sales we have
+## Q1. How many sales we have
 
 ```sql
 SELECT COUNT(*) as total_sale
 FROM retail_sale;
 
--- Q2.How many unique customers we have
+## Q2.How many unique customers we have
 
 ```sql
 SELECT COUNT(DISTINCT customer_id) as total_sale
 FROM retail_sale;
 
--- Q3.How many categories we have
+## Q3.How many categories we have
 
 ```sql
 SELECT DISTINCT category as total_sale
 FROM retail_sale;
 
 
---Q4. Query to show columns for sales made 2023-09-24
+##Q4. Query to show columns for sales made 2023-09-24
 
 ```sql
 SELECT *
@@ -124,7 +124,7 @@ FROM retail_sale
 WHERE sale_date='2023-09-24'
 ;
 
---Q5.Query to show the category is cleaning and quantity sold is more than 4 in NOV 2023
+##Q5.Query to show the category is cleaning and quantity sold is more than 4 in NOV 2023
 
 ```sql
 SELECT category,
@@ -143,7 +143,7 @@ FROM retail_sale
     ;
 
 
---Q6. a query to give total sales for each category
+##Q6. a query to give total sales for each category
 
 ```sql
 SELECT
@@ -153,7 +153,7 @@ count(*) as total_orders
 FROM retail_sale;
 
 
---Q7. query to find average age of customers who purchased from beauty category
+##Q7. query to find average age of customers who purchased from beauty category
 
 ```sql
 SELECT
@@ -161,7 +161,7 @@ ROUND(AVG(age) ,2)
 FROM retail_sale
 WHERE category='beauty';
 
---Q8. a query to find transactions where total sales is greater than 1000
+##Q8. a query to find transactions where total sales is greater than 1000
 
 ```sql
 SELECT*
@@ -169,7 +169,7 @@ FROM retail_sale
 WHERE total_sale>1000 ;
 
 
---Q9. a query to find total transactions made by each gender to each category
+##Q9. a query to find total transactions made by each gender to each category
 
 ```sql
 SELECT
@@ -180,7 +180,7 @@ FROM retail_sale
 GROUP BY category,gender
 ORDER BY 1;
 
---Q10. calculate average sale for each month,best selling month in each year
+##Q10. calculate average sale for each month,best selling month in each year
 
 ``sql
 SELECT
@@ -223,7 +223,7 @@ ORDER BY 1 asc,avg_sale desc) AS TABLE_1
 WHERE ranking=1;
 
 
---Q11. query to find top 5 customers based on highest total sales
+##Q11. query to find top 5 customers based on highest total sales
 
 ```sql
 ELECT
@@ -235,7 +235,7 @@ ORDER BY 2 DESC
 LIMIT 5;
 
 
-Q12. query to find number of unique customers who purchased items from each category
+ ##Q12. query to find number of unique customers who purchased items from each category
 
 ```sql
 SELECT
@@ -244,7 +244,7 @@ COUNT(distinct customer_id) as unique_customers
 FROM retail_sale
 GROUP BY category;
 
-Q13. create shift and number of orders
+##Q13. create shift and number of orders
 
 ```sql
 with hourly_sales
