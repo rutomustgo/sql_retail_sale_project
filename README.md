@@ -7,6 +7,8 @@ A query to execute the create database
 ```sql
 CREATE DATABASE ombui_project;
 
+```
+
 ## CREATING TABLES
 I prefer to add the drop table if exists incase there's one
 
@@ -28,11 +30,16 @@ CREATE TABLE retail_sale
 )
 ;
 
+
+```
 ## SELECTING THE TABLE
 Writing a query to see the details in the table in the output
 
 ```sql
 SELECT * FROM retail_sale;
+
+```
+
 
 ## CHECKING ROWS
 To check rows if we impoerted all of them
@@ -43,7 +50,7 @@ COUNT(*)
 FROM RETAIL_SALE
 ;
 
-
+```
 -- DATA CLEANING
 
 ## CHECKING NULL VALUES
@@ -74,6 +81,8 @@ WHERE
     OR
     total_sale IS NULL;
 
+```
+
 
 ## CHECKING REPEATED ROWS
 Using ctes to facilitate the process
@@ -94,6 +103,8 @@ Using ctes to facilitate the process
     FROM duplicate_cte
     WHERE row_num >1;
 
+```
+
 
 -- DATA EXPLORATION
 
@@ -103,17 +114,23 @@ Using ctes to facilitate the process
 SELECT COUNT(*) as total_sale
 FROM retail_sale;
 
+```
+
+
 ## Q2.How many unique customers we have
 
 ```sql
 SELECT COUNT(DISTINCT customer_id) as total_sale
 FROM retail_sale;
 
+```
 ## Q3.How many categories we have
 
 ```sql
 SELECT DISTINCT category as total_sale
 FROM retail_sale;
+
+```
 
 
 ##Q4. Query to show columns for sales made 2023-09-24
@@ -123,6 +140,10 @@ SELECT *
 FROM retail_sale
 WHERE sale_date='2023-09-24'
 ;
+
+
+```
+
 
 ##Q5.Query to show the category is cleaning and quantity sold is more than 4 in NOV 2023
 
@@ -142,6 +163,8 @@ FROM retail_sale
     quantity>=4
     ;
 
+```
+
 
 ##Q6. a query to give total sales for each category
 
@@ -152,6 +175,8 @@ SUM(total_sale)AS net_sale,
 count(*) as total_orders
 FROM retail_sale;
 
+```
+
 
 ##Q7. query to find average age of customers who purchased from beauty category
 
@@ -161,6 +186,8 @@ ROUND(AVG(age) ,2)
 FROM retail_sale
 WHERE category='beauty';
 
+```
+
 ##Q8. a query to find transactions where total sales is greater than 1000
 
 ```sql
@@ -168,6 +195,7 @@ SELECT*
 FROM retail_sale
 WHERE total_sale>1000 ;
 
+```
 
 ##Q9. a query to find total transactions made by each gender to each category
 
@@ -180,9 +208,12 @@ FROM retail_sale
 GROUP BY category,gender
 ORDER BY 1;
 
+```
+
+
 ##Q10. calculate average sale for each month,best selling month in each year
 
-``sql
+```sql
 SELECT
 	YEAR(sale_date) AS year,
 	MONTH(sale_date) AS month,
@@ -222,6 +253,8 @@ GROUP BY 1,2) AS monthly_sales
 ORDER BY 1 asc,avg_sale desc) AS TABLE_1
 WHERE ranking=1;
 
+```
+
 
 ##Q11. query to find top 5 customers based on highest total sales
 
@@ -234,6 +267,7 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 5;
 
+```
 
  ##Q12. query to find number of unique customers who purchased items from each category
 
@@ -243,6 +277,9 @@ category,
 COUNT(distinct customer_id) as unique_customers
 FROM retail_sale
 GROUP BY category;
+
+```
+
 
 ##Q13. create shift and number of orders
 
@@ -264,7 +301,7 @@ FROM hourly_sales
 GROUP BY shift
 
 
-
+```
 
 
 
